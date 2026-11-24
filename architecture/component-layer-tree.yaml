@@ -1,0 +1,104 @@
+# investigative-ai — Component Layer Tree (Dashboard screen)
+# Author: Prince Cobb
+#
+# The layer tree for the 01-Dashboard screen, written the way the Figma file
+# is organized. The other three screens (02-CaseDetail, 03-Triage,
+# 04-SessionLock) follow the same discipline.
+#
+# Conventions:
+#   kind: frame     -> auto-layout frame (role-named, never visually named)
+#   kind: instance  -> component instance from the investigative-ai library
+#   kind: text      -> text layer bound to a published type style
+#
+# Rules encoded by this tree:
+#   - Screens are numbered (01–04). Frames take role names, never visual
+#     names: "Sidebar", not "DarkColumn".
+#   - Every repeated element is a library instance, never a detached copy,
+#     so a token or variant change propagates to all four screens at once.
+#   - Nothing sits outside a frame.
+#   - Prototyping hotspots attach to component instances, not loose layers.
+#   - Layers map onto the atomic-design stack: instances are atoms and
+#     molecules, named frames are organisms, each numbered screen is a
+#     template. The tree rebuilds in Figma directly, backed by the
+#     Core/Color and Core/Dimension variable collections.
+
+screen:
+  name: 01-Dashboard
+  kind: frame
+  layout: { size: 1280x800, direction: horizontal, auto_layout: true }
+  children:
+    - name: Sidebar
+      kind: frame
+      layout: { fill: surface-0, width: 216, direction: vertical }
+      children:
+        - name: Wordmark
+          kind: text
+          style: page-title
+        - name: NavItem
+          kind: instance
+          count: 5
+          props: { state: [active, rest] }
+        - name: NavItem / Lock session
+          kind: instance
+          prototype_link: 04-SessionLock
+    - name: Content
+      kind: frame
+      layout: { fill: surface-canvas, direction: vertical, gap: space-6 }
+      children:
+        - name: PageHeader
+          kind: frame
+          layout: { direction: horizontal, justify: space-between }
+          children:
+            - name: Title + subtitle
+              kind: text
+              style: [page-title, body-sm]
+            - name: Button / primary
+              kind: instance
+              prototype_link: 03-Triage
+        - name: KPIBand
+          kind: frame
+          layout: { grid: 4 columns, gap: space-4 }
+          children:
+            - name: StatCard
+              kind: instance
+              count: 4
+              props: { trend: [up, none] }
+        - name: WorkRow
+          kind: frame
+          layout: { grid: 2 columns }
+          children:
+            - name: LatestCasework
+              kind: frame
+              layout: { fill: surface-1, radius: radius-section }
+              children:
+                - name: CaseListItem
+                  kind: instance
+                  count: 3
+                  prototype_link: 02-CaseDetail
+            - name: Notifications
+              kind: frame
+              layout: { fill: surface-1 }
+              children:
+                - name: NotificationRow
+                  kind: instance
+                  count: 3
+                  props: { read: [true, false] }
+                  children:
+                    - name: StatusBadge
+                      kind: instance
+                      nested: inside each row
+                      props: { status: [open, hold, closed, new, read] }
+
+# Prototype flow map — every hotspot in the four-screen prototype.
+# Return wires: every screen links back to the Dashboard; Triage also
+# returns to Case Detail. The lock screen is reachable from the Dashboard
+# sidebar, modeling the AC-11 session flow.
+prototype_links:
+  - { from: Dashboard,    hotspot: Chat With AI,        placement: primary action,          to: 03-Triage }
+  - { from: Dashboard,    hotspot: Open (case row),        placement: case list and latest casework, to: 02-CaseDetail }
+  - { from: Dashboard,    hotspot: Lock session,           placement: sidebar footer,          to: 04-SessionLock }
+  - { from: Case Detail,  hotspot: Open triage workspace,  placement: evidence header,         to: 03-Triage }
+  - { from: Case Detail,  hotspot: Back to dashboard,      placement: top bar,                 to: 01-Dashboard }
+  - { from: Triage,       hotspot: Back to case,           placement: top bar,                 to: 02-CaseDetail }
+  - { from: Triage,       hotspot: Finish review,          placement: action row,              to: 01-Dashboard }
+  - { from: Session Lock, hotspot: Re-authenticate,        placement: models the MFA re-entry step, to: 01-Dashboard }

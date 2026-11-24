@@ -1,0 +1,322 @@
+{
+  "name": "investigative-ai",
+  "version": 1,
+  "meta": {
+    "source": "Computed CSS custom properties audited from the live investigative-ai application (internal endpoints redacted)",
+    "author": "Prince Cobb",
+    "license": "See LICENSE in this repository"
+  },
+  "color": {
+    "themes": [
+      {
+        "id": "dark",
+        "name": "Dark"
+      }
+    ],
+    "note": "investigative-ai ships dark-only (html.dark). Values are the exact computed custom properties from the live app. Contrast ratios in each usage note were computed per WCAG 2.1.",
+    "tokens": [
+      {
+        "name": "surface-canvas",
+        "value": "#0e141e",
+        "usage": "App canvas / page background — bottom rung of the dark-mode surface ladder (elevation −1). Source var: --background."
+      },
+      {
+        "name": "surface-0",
+        "value": "#121b26",
+        "usage": "Shell chrome: sidebar and app frame (elevation 0). Source vars: --surface-0, --sidebar."
+      },
+      {
+        "name": "surface-1",
+        "value": "#1c2532",
+        "usage": "Cards and sections (elevation 1). text-primary on it: 14.76:1 AAA. Source vars: --card, --surface-1."
+      },
+      {
+        "name": "surface-2",
+        "value": "#26303e",
+        "usage": "Nested panels, hover rows, wells inside cards (elevation 2). text-primary: 12.75:1 AAA. Source var: --surface-2."
+      },
+      {
+        "name": "surface-3",
+        "value": "#2c323f",
+        "usage": "Popovers, menus, tooltips — topmost surface (elevation 3); also the muted fill. Source vars: --popover, --muted."
+      },
+      {
+        "name": "surface-inset",
+        "value": "#1e232e",
+        "usage": "Inset fills that read as recessed, not raised: search inputs, quiet secondary buttons. Source var: --secondary."
+      },
+      {
+        "name": "text-primary",
+        "value": "#f8fafc",
+        "usage": "Primary text and icons. 17.65:1 on surface-canvas, 14.76:1 on surface-1 — AAA everywhere on the ladder. Source var: --foreground."
+      },
+      {
+        "name": "text-muted",
+        "value": "#c8ced8",
+        "usage": "Secondary text: sublabels, timestamps, helper copy. 11.67:1 on canvas, 9.76:1 on surface-1 — AAA. Source var: --muted-foreground."
+      },
+      {
+        "name": "text-sidebar",
+        "value": "#b4becd",
+        "usage": "Resting sidebar nav labels. 9.24:1 on surface-0 — AAA. Source var: --sidebar-foreground."
+      },
+      {
+        "name": "brand-primary",
+        "value": "#609dd2",
+        "usage": "Brand blue: primary buttons, active nav, links. 6.37:1 on surface-canvas — AA as text, passes 3:1 as a UI fill. Source var: --primary."
+      },
+      {
+        "name": "brand-on-primary",
+        "value": "#0f1729",
+        "usage": "Ink on brand-primary fills. 6.17:1 on brand-primary — AA. Source var: --primary-foreground."
+      },
+      {
+        "name": "brand-accent",
+        "value": "#13398c",
+        "usage": "Deep accent fill for selected/emphasis bands. Use with brand-on-accent only. Source var: --accent."
+      },
+      {
+        "name": "brand-on-accent",
+        "value": "#aacdff",
+        "usage": "Text on brand-accent. 6.47:1 — AA. Source var: --accent-foreground."
+      },
+      {
+        "name": "focus-ring",
+        "value": "#3b82f6",
+        "usage": "Keyboard focus ring on every interactive element. 5.02:1 on canvas — clears the 3:1 non-text minimum. Source var: --ring."
+      },
+      {
+        "name": "state-success",
+        "value": "#4ade80",
+        "usage": "Positive state text/icons (deltas, healthy counts). 10.59:1 on canvas — AAA. Source var: --success."
+      },
+      {
+        "name": "state-warning",
+        "value": "#facc15",
+        "usage": "Warning / on-hold state text and icons. 12.06:1 on canvas — AAA. Source var: --warning."
+      },
+      {
+        "name": "state-danger",
+        "value": "#ff6e6e",
+        "usage": "Destructive and error text/icons. 6.78:1 on canvas — AA. Source var: --destructive."
+      },
+      {
+        "name": "state-info",
+        "value": "#60a5fa",
+        "usage": "Informational state: unread 'New' notification badges. 7.26:1 on canvas — AAA. Source var: --info."
+      },
+      {
+        "name": "state-on-fill",
+        "value": "#0f1729",
+        "usage": "Ink on solid success/warning/info fills. Source vars: --success-foreground, --warning-foreground, --info-foreground."
+      },
+      {
+        "name": "badge-open-bg",
+        "value": "#153825",
+        "usage": "Fill of the 'Open' case-status badge, as computed live."
+      },
+      {
+        "name": "badge-open-fg",
+        "value": "#86efac",
+        "usage": "Text of the 'Open' badge. 9.21:1 on badge-open-bg — AAA."
+      },
+      {
+        "name": "badge-open-border",
+        "value": "#1e5034",
+        "usage": "Hairline on the 'Open' badge; one lightness step above its fill."
+      },
+      {
+        "name": "border-default",
+        "value": "#3e485a",
+        "usage": "Hairline borders on cards and controls. 2.0:1 on canvas — FAILS the 3:1 non-text minimum, so decorative only: any meaningful boundary must also change fill or text. Source var: --border."
+      },
+      {
+        "name": "border-sidebar",
+        "value": "#1e2836",
+        "usage": "Divider inside the shell/sidebar; intentionally quieter than border-default. Source var: --sidebar-border."
+      },
+      {
+        "name": "nav-selected",
+        "value": "#17263c",
+        "usage": "Selected / hover fill for sidebar nav items. Source var: --sidebar-accent."
+      },
+      {
+        "name": "chart-1",
+        "value": "#387ab9",
+        "usage": "First categorical chart series. Source var: --chart-1."
+      },
+      {
+        "name": "chart-2",
+        "value": "#16a9df",
+        "usage": "Second categorical chart series. Source var: --chart-2."
+      },
+      {
+        "name": "chart-3",
+        "value": "#29b0e2",
+        "usage": "Third categorical chart series; differs from chart-2 in lightness, not hue alone. Source var: --chart-4 in source."
+      }
+    ]
+  },
+  "type": {
+    "fonts": [],
+    "families": {
+      "sans": "Geist, -apple-system, system-ui, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif",
+      "mono": "'Geist Mono', 'SF Mono', Monaco, 'Cascadia Code', 'Roboto Mono', Consolas, 'Courier New', monospace"
+    },
+    "groups": [
+      {
+        "name": "Display",
+        "family": "sans",
+        "styles": [
+          {
+            "name": "page-title",
+            "fontSize": "32px",
+            "lineHeight": "33.6px",
+            "fontWeight": 700,
+            "letterSpacing": "-0.96px",
+            "sample": "Welcome back, Analyst",
+            "usage": "One per screen: the page greeting/title."
+          },
+          {
+            "name": "stat-value",
+            "fontSize": "30px",
+            "lineHeight": "31.5px",
+            "fontWeight": 600,
+            "letterSpacing": "-0.9px",
+            "sample": "1372",
+            "usage": "KPI numbers in stat cards. Tight negative tracking keeps wide numerals compact."
+          }
+        ]
+      },
+      {
+        "name": "Headings",
+        "family": "sans",
+        "styles": [
+          {
+            "name": "section-label",
+            "fontSize": "14px",
+            "lineHeight": "20px",
+            "fontWeight": 700,
+            "letterSpacing": "1.4px",
+            "sample": "LATEST CASEWORK",
+            "usage": "Uppercase section headers (rendered uppercase, +10% tracking). The only wide-tracked style in the system."
+          }
+        ]
+      },
+      {
+        "name": "Text",
+        "family": "sans",
+        "styles": [
+          {
+            "name": "body",
+            "fontSize": "16px",
+            "lineHeight": "24px",
+            "fontWeight": 400,
+            "usage": "Default body copy; 1.5 line-height from the base scale."
+          },
+          {
+            "name": "body-sm",
+            "fontSize": "14px",
+            "lineHeight": "20px",
+            "fontWeight": 400,
+            "usage": "Dense UI copy: table cells, notification descriptions."
+          },
+          {
+            "name": "label",
+            "fontSize": "14px",
+            "lineHeight": "20px",
+            "fontWeight": 500,
+            "usage": "Buttons, badges, nav items — interactive labels."
+          },
+          {
+            "name": "caption",
+            "fontSize": "12px",
+            "lineHeight": "14.4px",
+            "fontWeight": 600,
+            "letterSpacing": "-0.16px",
+            "sample": "86% of total",
+            "usage": "Stat deltas and fine print; often in a state color."
+          }
+        ]
+      },
+      {
+        "name": "Mono",
+        "family": "mono",
+        "styles": [
+          {
+            "name": "mono-meta",
+            "fontSize": "13px",
+            "lineHeight": "20px",
+            "fontWeight": 400,
+            "sample": "4354643 · 10/23/2026",
+            "usage": "Case IDs, timestamps and other machine-ish metadata."
+          }
+        ]
+      }
+    ]
+  },
+  "spacing": {
+    "note": "4px base grid (Tailwind scale observed in source).",
+    "tokens": [
+      {
+        "name": "space-1",
+        "value": "4px",
+        "usage": "Icon-to-label gaps; badge inner spacing."
+      },
+      {
+        "name": "space-2",
+        "value": "8px",
+        "usage": "Gaps inside controls; stacked label/value pairs."
+      },
+      {
+        "name": "space-3",
+        "value": "12px",
+        "usage": "List-row vertical rhythm; badge horizontal padding."
+      },
+      {
+        "name": "space-4",
+        "value": "16px",
+        "usage": "Card padding; gaps between related elements."
+      },
+      {
+        "name": "space-6",
+        "value": "24px",
+        "usage": "Gaps between cards in the KPI band and dashboard zones."
+      },
+      {
+        "name": "space-8",
+        "value": "32px",
+        "usage": "Zone separation: between dashboard bands; page margins."
+      }
+    ]
+  },
+  "radius": {
+    "tokens": [
+      {
+        "name": "radius-md",
+        "value": "12px",
+        "usage": "Controls, buttons, inputs and status badges (0.75rem — source var --radius)."
+      },
+      {
+        "name": "radius-section",
+        "value": "14px",
+        "usage": "Cards and section containers (0.875rem — source var --radius-section). One step softer than controls."
+      },
+      {
+        "name": "radius-full",
+        "value": "9999px",
+        "usage": "Pills, avatars, dot indicators."
+      }
+    ]
+  },
+  "shadow": {
+    "note": "Elevation is carried by the surface ladder, not shadows; the single shadow is a whisper.",
+    "tokens": [
+      {
+        "name": "shadow-xs",
+        "value": "0 1px 2px 0 rgb(0 0 0 / 0.1)",
+        "usage": "The only shadow in the system (source var --shadow-xs); surfaces separate by lightness instead."
+      }
+    ]
+  }
+}
